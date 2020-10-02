@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Gill Sans, sans-serif;
+
+    --accentColor: #fc7753;
+    --lightText: #f2efea;
+    --darkBackground: #403D58;
+    --blueAccent: #66d7d1;
+
+}
+
+body {
+    background: var(--darkBackground);
+    height: fit-content;
+}
+
+header {
+    background-image: url("../img/homepage/2018Kickoff2.jpg");
+    background-color: var(--lightText);
+    background-size: cover;
+    background-position:center 85%;
+    background-repeat: no-repeat;
+    height: 380px;
+    width: 100%;
+    text-align: center;
+}
+
+#contentArea img{
+    box-shadow: 5px 5px 10px #888888;
+}
+
+
+
+h1 {
+    color: var(--lightText);
+    font-size: 50pt;
+    letter-spacing: 4pt;
+    font-weight: 300;
+}
+
+.accent {
+    color: var(--accentColor);
+}
+
+header h5 {
+    color: var(--lightText);
+    letter-spacing: 1px;
+}
+
+#nav {
+    width: 100%;
+    margin: 0;
+}
+
+#headerText {
+    background-color: var(--darkBackground);
+    width: fit-content;
+    padding: 16px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-left: 15%;
+    margin-right: 15%;
+    position: sticky;
+    box-shadow: 8px;
+    border-top:2px solid var(--accentColor);
+    box-shadow: 5px 5px 10px #000000;
+}
+
+nav {
+    border-top: 1px solid black;
+    box-shadow: 5px 0 10px black;
+}
+
+nav *{
+  transition: 0.5s;
+}
+nav ul{
+    list-style-type: none;
+    background-color: var(--darkBackground);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    padding-left: 15%;
+    border-top:2px solid var(--accentColor);
+}
+
+nav li {
+    float: left;
+}
+
+nav a{
+    display: block;
+    padding: 16px 24px;
+    text-decoration: none;
+    text-align: center;
+    color: var(--lightText);
+    font-size: 16pt;
+    transition: 0.4s;
+    border-bottom: 2px solid var(--darkBackground);
+}
+
+nav a:hover{
+    background: #302e42;
+    color: var(--accentColor);
+}
+
+.active a{
+  border-bottom: 2px solid var(--blueAccent);
+  color: var(--accentColor);
+  transition: 0.2s;
+}
+
+.home{
+  float: right;
+  margin-right: 16px;
+}
+
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + #contentArea {
+  padding-top: 60px;
+}
+
+.fab {
+   width: 70px;
+   height: 70px;
+   background-color: var(--accentColor);
+   border-radius: 50%;
+   box-shadow: 0 6px 10px 0 #666;
+   transition: all 0.1s ease-in-out;
+
+   font-size: 50px;
+   color: white;
+   text-align: center;
+   line-height: 70px;
+
+   position: fixed;
+   right: 50px;
+   bottom: 50px;
+}
+
+.fab:hover {
+   box-shadow: 0 6px 14px 0 #111111;
+   transform: scale(1.05);
+   cursor: pointer;
+}
+
+.fab img {
+  box-shadow: none !important;
+  height: 50px;
+  margin:7pt;
+}
+
+
+h2 {
+    color: var(--accentColor);
+    border-bottom: 3px solid var(--darkBackground);
+    margin-bottom: 8px;
+
+}
+
+section {
+    /* border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 16px; */
+    padding: 24px 12% 24px 12%;
+    background: var(--lightText);
+}
+
+p {
+    display: inline-block;
+    font-size: 16pt;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h3 {
+  margin-top: 8pt;
+  clear: both;
+}
+
+h4 {
+  margin-top: 8pt;
+  clear: both;
+}
+
+#AboutMe img{
+    float: right;
+    margin-left: 24pt;
+    margin-bottom:24pt;
+}
+
+
+#AboutMe h3{
+    clear: both;
+}
+
+#aboutMeFirst p{
+    clear: both;
+}
+
+#cso img{
+  float: right;
+  margin-left: 24pt;
+  margin-bottom: 24pt;
+}
+#cso p{
+  clear: both;
+}
+
+#band img{
+  float: right;
+  margin-left: 24pt;
+  margin-bottom: 24pt;
+}
+#band p{
+  clear: both;
+}
+
+#Projects img {
+  float: right;
+  margin-left: 30px;
+  margin-bottom 8px;
+  clear: both;
+}
+
+#Experience img {
+  box-shadow: none;
+  float: right;
+  margin-left: 30px;
+  margin-bottom 8px;
+  clear: both;
+}
+
+#Experience a {
+  box-shadow: none;
+  float: right;
+  margin-left: 30px;
+  margin-bottom 8px;
+  margin-top: 8px;
+  margin-right: 36px;
+  clear: both;
+}
+
+#mcs img {
+  color:#647898
+}
+
+
+footer{
+  font-family: Gill Sans, sans-serif;
+  color: var(--lightText);
+  float: left;
+  height: 64pt;
+  margin: 16pt;
+}
+
+footer p {
+  font-weight: 8pt;
+}
+
+
+/*
+Lab Specific Styling
+*/
+
+figure{
+  padding-left: 16px;
+  padding-top: 16px;
+  margin-bottom: 16px;
+  clear: both;
+}
+
+figure figcaption {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+section {
+  overflow: hidden;
+}
+
+figure p {
+font-size: 12pt;
+
+}
+
+#Lab p{
+  display: block;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+
+  clear: both;
+}
+
+.column1 {
+  flex: 100%;
+  padding: 5px;
+}
+
+.column2 {
+  flex: 50%;
+  padding: 5px;
+}
+
+.column3 {
+  flex: 33%;
+  padding: 5px;
+}

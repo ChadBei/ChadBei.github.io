@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/jquery-fab.css">
+    <title>Chad Beibide</title>
+  </head>
+
+
+
+  <body>
+
+    <header>
+      <div id="headerText">
+      <h1>Chad Beibide</h1>
+      <h5>cnb0036@auburn.edu <span class="accent">|</span> 256.529.9267</h5>
+    </div>
+    </header>
+
+    <nav id="navbar">
+      <ul>
+         <li class="active"><a href="./Lab1.html">Lab 1</a></li>
+         <li><a href="./Lab2.html">Lab 2</a></li>
+         <li><a href="./Lab3.html">Lab 3</a></li>
+         <li class="home"><a href="./index.html">Home</a></li>
+      </ul>
+    </nav>
+
+
+
+    <div id="contentArea">
+
+
+    <section id="Lab">
+      <h2>Lab One: Tests and Measurements</h2>
+      <div id="DC">
+      <h3>Simple Sine Wave</h3>
+
+        <p>
+          To begin, the function generator is used to create a 10KHz sine wave that has a $V_{pp}$ of 2V with a DC offset of 0V.
+          The function generator is connected directly to the oscilloscope to view the signal as shown in Figure 1.
+          In doing so, an appropriate trigger level and time scale were chosen so that the signal will display nicely.
+        </p>
+
+        <!-- Figures from Lab session -->
+        <div class="row">
+              <div class="1column">
+                <figure>
+                  <img src="img/lab1/sine.png" alt="10KHz Sine Wave" width="100%">
+                  <figcaption><b>Fig.1</b> - 10KHz Sine Wave</figcaption>
+                </figure>
+              </div>
+        </div>
+
+    </div>
+
+    <div id="AmplitudeModulation">
+      <h3>Amplitude Modulation</h3>
+      <p>
+        Now the function generator is used to created an amplitude modulated signal.
+        As is indicated in the name, AM signals carry a signal by modulating the amplitude of a base carrier signal.
+        This carrier frequency of this signal is designated to be 10KHz with a modulated 1KHz signal as shown in Figure 2.
+        The function generator is once again connected directly to the oscilloscope for viewing.
+      </p>
+
+      <div class="row">
+            <div class="2column">
+              <figure>
+                <img src="img/lab1/am.png" alt="Amplitude Modulated Signal" width="100%">
+                <figcaption><b>Fig.2</b> - Amplitude Modulated Signal</figcaption>
+              </figure>
+            </div>
+      </div>
+
+    </div>
+
+    <div id="AM Analysis">
+      <h3>AM Analysis</h3>
+      <p>
+        Now the previously generated signal is analyzed in the frequency domain.
+        This is done by using the Spectrum Analyzer function of the oscilloscope.
+        The spectrum shown in Figure 3 is the frequency spectrum of a 1.23MHz 100mV $V_{PP}$ signal at 50% modulation.
+        Similarily Figure 4 shows the same signal at 100% modulation. Tables 1 and 2 show  the values of the upper, lower and center bands of the two signals.
+      </p>
+
+      <div class="row">
+            <div class="2column">
+              <figure>
+                <img src="img/lab1/one.png" alt="AM SSpectrum Analyzer 50% Modulation" width="100%">
+                <figcaption><b>Fig.3</b> - AM SSpectrum Analyzer 50% Modulation</figcaption>
+              </figure>
+            </div>
+
+            <div class="2column">
+              <figure>
+                <img src="img/lab1/two.png" alt="AM Spectrum Analyzer 100% Modulation" width="100%">
+                <figcaption><b>Fig.4</b> - AM Spectrum Analyzer 100% Modulation</figcaption>
+              </figure>
+            </div>
+      </div>
+
+      <div class="row">
+        <div class="2column">
+          <figure>
+            <p>
+              \begin{array} {|c|c|c|}
+              \hline
+              Frequency (MHz) & dBm Level & Voltage Amplitude (mV)\\
+              \hline
+              1.229 & -33.6 & 6.6 \\
+              1.23 & -21.6 & 26.3 \\
+              1.231 & -33 & 6.6 \\
+              \hline  \end{array}
+          </p>
+          <figcaption><b>Table.1</b> - Spectrum Analyzer 50% Modulation Values</figcaption>
+          </figure>
+        </div>
+
+        <div class="2column">
+          <figure>
+            <p>
+              \begin{array} {|c|c|c|}
+              \hline
+              Frequency (MHz) & dB Level & Voltage Amplitude (mV)\\
+              \hline
+              1.229 & -57.6 & 13.18 \\
+              1.23 & -51.6 & 26.3 \\
+              1.231 & --57.6 & 13.18 \\
+              \hline  \end{array}
+          </p>
+          <figcaption><b>Table.2</b> - Spectrum Analyzer 100% Modulation Values</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <p>
+        Next a similar signal is analyzed using the FFT (Fast Fourier Transform) function of the oscilloscope.
+        The spectrum shown in Figure 5 is the frequency spectrum of a 50KHz 100mV $V_{PP}$ signal at 50% modulation.
+        Similarily Figure 6 shows the same signal at 100% modulation. Tables 1 and 2 show  the values of the upper, lower and center bands of the two signals.
+      </p>
+      <div class="row">
+            <div class="2column">
+              <figure>
+                <img src="img/lab1/three.png" alt="AM FFT 50% Modulation" width="100%">
+                <figcaption><b>Fig.5</b> - AM FFT 50% Modulation</figcaption>
+              </figure>
+            </div>
+
+            <div class="2column">
+              <figure>
+                <img src="img/lab1/four.png" alt="AM FFT 100% Modulation" width="100%">
+                <figcaption><b>Fig.6</b> - AM FFT 100% Modulation</figcaption>
+              </figure>
+            </div>
+      </div>
+
+      <div class="row">
+        <div class="2column">
+          <figure>
+            <p>
+              \begin{array} {|c|c|c|}
+              \hline
+              Frequency (kHz) & dB Level & Voltage Amplitude (mV)\\
+              \hline
+              49 & -47.36 & 6.06 \\
+              50 & -35.61 & 23.44 \\
+              51 & -47.36 & 6.06 \\
+              \hline  \end{array}
+          </p>
+          <figcaption><b>Table.1</b> - AM FFT 50% Modulation Values</figcaption>
+          </figure>
+        </div>
+
+        <div class="2column">
+          <figure>
+            <p>
+              \begin{array} {|c|c|c|}
+              \hline
+              Frequency (MHz) & dB Level & Voltage Amplitude (mV)\\
+              \hline
+              49.01 & -41.7 & 11.62 \\
+              50 & -35.37 & 23.04 \\
+              50.99 & -41.92 & 11.33 \\
+              \hline  \end{array}
+          </p>
+          <figcaption><b>Table.2</b> - AM FFT 100% Modulation Values</figcaption>
+          </figure>
+        </div>
+      </div>
+
+<p>
+    These values are different from the spectrum analyzer as the carrier frequency is much smaller.
+    This is to be expected. These analysis methods can be used to decompose and isolate wanted and unwanted frequencies.
+</p>
+
+    </div>
+
+
+    </section>
+
+
+
+  </div>
+
+        <footer>
+          <h4>Created By: Chad Beibide</h5>
+          <h5>Use icon in bottom right to send me an email, download my resume, or both! Hope to hear from you!</h5>
+        </footer>
+
+    <div id="fab"></div>
+  <script type="text/javascript"  src="js/jquery/dist/jquery.min.js"></script>
+  <script src="js/dist/jquery-fab.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  </body>
+
+</html>
