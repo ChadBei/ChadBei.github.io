@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/jquery-fab.css">
+    <title>Chad Beibide</title>
+  </head>
+
+
+
+  <body>
+
+    <header>
+      <div id="headerText">
+      <h1>Chad Beibide</h1>
+      <h5>cnb0036@auburn.edu <span class="accent">|</span> 256.529.9267</h5>
+    </div>
+    </header>
+
+    <nav id="navbar">
+      <ul>
+         <li><a href="./Lab1.html">Lab 1</a></li>
+         <li><a href="./Lab2.html">Lab 2</a></li>
+         <li><a href="./Lab3.html">Lab 3</a></li>
+         <li class="active"><a href="./Lab4.html">Lab 4</a></li>
+         <li><a href="./Lab5.html">Lab 5</a></li>
+         <li><a href="./Lab6.html">Lab 6</a></li>
+         <li class="home"><a href="./index.html">Home</a></li>
+      </ul>
+    </nav>
+
+
+
+    <div id="contentArea">
+
+
+    <section id="Lab">
+      <h2>Lab Four: AM Detectors</h2>
+      <p>
+        AM detectors are an obvious essential part to any AM radio.
+        AM waves must be demodulated in order to separate the carrier wave from the modulated wave.
+        The madulated wave is what must be extractd in order to get a clear audible tone out of the amplifier.
+      </p>
+      <div id="DC">
+      <h3>Constructing AM Detectors</h3>
+
+        <p>
+          The simple detector circuit shown in <b>Figure 1</b> is created on the breadboard.
+          This AM detector will have significant clipping of the signal due to the turn-on voltage of the diode.
+          The diode will not activate until the signal is high enough and will not capure the lower amplitude pieces of the signal.
+          This clipping is shown in <b>Figure 2</b>.
+          When fed a very small signal such as 100mV, there is no output read on the oscilloscope.
+          This is once again due to the higher turn-on voltage of the diode.
+        </p>
+        <!-- Figures from Lab session -->
+        <div class="row">
+              <div class="2column">
+                <figure>
+                  <img src="img/lab4/simple.png" alt="Simple AM Detector" width="100%">
+                  <figcaption><b>Figure 1</b> - Simple AM Detector</figcaption>
+                </figure>
+              </div>
+          <div class="2column">
+            <figure>
+              <img src="img/lab4/clip.png" alt="Diode Detctor Clipping" width="100%">
+              <figcaption><b>Figure 2</b> - Diode Detector Clipping</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p>
+          When the resistor is swapped for a 10k\(\Omega\) resistor, the time constant of the RC circuit increases greatly.
+          The output of this is shown in <b>Figure 3</b>.
+          This increases the time constant so much so, that the AM detector does not correctly distinguish the modulated frequency.
+          This effect is further exaggerated when the resistor is increased to of 100k\(\Omega\) and becomes more like a DC voltage.
+        </p>
+
+        <!-- Figures from Lab session -->
+        <div class="row">
+              <div class="2column" width ="40%">
+                <figure>
+                  <img src="img/lab4/highTau.png" alt="10kOhm" width="100%">
+                  <figcaption><b>Figure 3</b> - 10k\(\Omega\)</figcaption>
+                </figure>
+              </div>
+        </div>
+
+    </div>
+
+    <div id="AC">
+      <h3>Biased Diode Detector</h3>
+      <p>
+        Now the diode is biased so that the it can detect smaller voltage inputs and to reduce clipping.
+        The biased diode detector circuit is shown in <b>Figure 4</b> and constructed on the breadboard.
+        With this circuit, there is little to no clipping.
+        With increasing the amplitude of the AM signal, it it found that the output becomes clearer.
+      </p>
+
+      <!-- Figures from Lab session -->
+      <div class="row">
+            <div class="2column">
+              <figure>
+                <img src="img/lab4/biased.png" alt="Biased Detector" width="100%">
+                <figcaption><b>Figure 4</b> - Biased Diode Tetector</figcaption>
+              </figure>
+            </div>
+        <div class="2column">
+          <figure>
+            <img src="img/lab4/biasedDiode.png" alt="Biased Diode Detector" width="100%">
+            <figcaption><b>Figure 5</b> - Biased Diode Detector Input and Output</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>Adding the AM Detector to the Amplifier</h3>
+
+      <p>
+        The AM detector is connected to the LM Amplifier.
+        For this particular ampliefer, the output is shown in <b>Figure 6</b>.
+        The sound quality of this combination sounds very good, and has a clear output signal.
+        It is unclear why the input is being shown as it is on the oscilloscope, but it is confirmed that the wave in actuality is the correct modulated waveform.
+      </p>
+
+      <!-- Figures from Lab session -->
+      <div class="row">
+            <div class="2column" width="40%">
+              <figure>
+                <img src="img/lab4/LM.png" alt="AM Detector and LM Amplifier" width="100%">
+                <figcaption><b>Figure 6</b> - AM Detector and LM Amplifier</figcaption>
+              </figure>
+            </div>
+      </div>
+
+
+      <p>
+        Through this lab, a deeper understanding of how information is encoded in waves and how to decode that information.
+        The time constant for the detector must be properly outfitted so that the signal is properly detected and not clipped in any way.
+        Clipping a wave will result in a loss of sound quality and distortion to the audio.
+        The combination of amplifiers is also essential to the overall design, and this was also emphasized in this lab.
+      </p>
+
+    </section>
+
+
+
+  </div>
+
+        <footer>
+          <h4>Created By: Chad Beibide</h5>
+          <h5>Use icon in bottom right to send me an email, download my resume, or both! Hope to hear from you!</h5>
+        </footer>
+
+    <div id="fab"></div>
+  <script type="text/javascript"  src="js/jquery/dist/jquery.min.js"></script>
+  <script src="js/dist/jquery-fab.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  </body>
+
+</html>

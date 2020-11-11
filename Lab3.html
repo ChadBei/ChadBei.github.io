@@ -26,6 +26,9 @@
          <li><a href="./Lab1.html">Lab 1</a></li>
          <li><a href="./Lab2.html">Lab 2</a></li>
          <li class="active"><a href="./Lab3.html">Lab 3</a></li>
+         <li><a href="./Lab4.html">Lab 4</a></li>
+         <li><a href="./Lab5.html">Lab 5</a></li>
+         <li><a href="./Lab6.html">Lab 6</a></li>
          <li class="home"><a href="./index.html">Home</a></li>
       </ul>
     </nav>
@@ -37,31 +40,48 @@
 
     <section id="Lab">
       <h2>Lab Three: Audio Amplifier</h2>
+      <p>
+        During this lab the audio amplifier portion of the radio is constructed.
+        This portion is important because the radio speaker requires a strong signal in order for it to be able to be heard clearly.
+        The weak signal will enter the two-stage amplifier and exit the amplifier with a notable gain as discussed below.
+      </p>
       <div id="DC">
-      <h3>Building and Testing a Two-Stage Amplifier</h3>
+      <h3>Building and Testing The CE Amplifier</h3>
 
         <p>
-          The circuit shown in <b>Figure 1</b> is a four-resistor biased NPN transistor.
-          This network serves as a basic amplifier of a given input signal once several AC components are added.
-          This circuit is then created on a breadboard as shown in <b>Figure 2</b>.
-          Next, \(V_{BE}\) is measured to be \(0.69V\) and \(V_{CE}\) is measured as \(4.36V\).
-          Now the q-point is measured using a digital multimeter.
-          The q-point is defined as \((V_{CE}, I_C)\) and measured to be \((4.2V, 0.3mA)\).
+          To begin, two wires are soldered onto the probes of the 8\(\Omega\) speaker.
+          This now enables the speaker to be connected as the load at the end of the amplifiers to hear the amplified signal.
+        </p>
 
+        <p>
+          The speaker is then connectd as the load of the CE amplifier from Lab 2.
+          When the amplifier is fed an input, the output to the speaker is relatively the same, as the speaker is only 8\(\Omega\).
+          When the speaker is connected there is about 600\(mV_{PP}\) verus a 2\(V_{PP}\) when the speaker is not connected.
+          The sound is not extremely loud, but it is certainly audible at this point.
+        </p>
+
+        <p>
+          Next the CE audio amplifier is connected to the speaker.
+          When used alone with the speaker, there is almost no gain to be detected as shown in <b>Figure 1</b>.
+          This is due to the small load resistance of the speaker.
+        </p>
+
+        <p>
+          Next the CC amplifier shown in <b>Figure 2</b> is created.
         </p>
 
         <!-- Figures from Lab session -->
         <div class="row">
               <div class="2column">
                 <figure>
-                  <img src="img/lab2/DC.jpg" alt="DC Circuit Scematic" width="100%">
-                  <figcaption><b>Fig.1</b> - DC Four-Resistor Biased Network Schematic</figcaption>
+                  <img src="img/lab3/tek0000.png" alt="CE Amplifier with speaker" width="100%">
+                  <figcaption><b>Figure 1</b> - CE Amplifier With Speaker Connected As Load</figcaption>
                 </figure>
               </div>
           <div class="2column">
             <figure>
-              <img src="img/lab2/DCbread.jpg" alt="DC Circuit Breadboard" width="60%">
-              <figcaption><b>Fig.2</b> - Breadboarded DC Four-Resistor Biased Network</figcaption>
+              <img src="img/lab3/fig2.png" alt="CC Amplifier" width="100%">
+              <figcaption><b>Figure 2</b> - CC Amplifier Schematic</figcaption>
             </figure>
           </div>
         </div>
@@ -69,146 +89,102 @@
     </div>
 
     <div id="AC">
-      <h3>Adding the AC Portion</h3>
+      <h3>Building and Testing The CC Amplifier</h3>
       <p>
-        Now the AC portion as showin in <b>Figure 3</b> is added to the breadboard as shown in <b>Figure 4</b>.
-        The circuit now functions as an analog amplifier given an input on the breadboard rail number two.
+        Once the CC ampliefer is breadboarded and debugged accordingy, it is ready for testing.
+        The speaker is now connected to the CC amplifier.
+        Once fed the same waveform from the CE amplifier, the output sound seems to be relativelt the same with no audible gain detectable.
+        The output waveform is nearly identical to that of <b>Figure 2</b>.
+        It was also found that too much power was being dissipated in the 47\(\Omega\) resistor, and three 100\(\Omega\) resistors are used in replacement to dissipate the power more evenly.
+      </p>
+
+      <h3>Building and Testing The Two Stage Amplifier</h3>
+
+      <p>
+        Now the two stage amplifier shown in <b>Figure 3</b> is constructed.
+        Once created, the testing of the circuit ensure.
+        The fist stage is fed a very small(approx. 40\(mV\)) signal. And the speaker is connected to the output of the second stage.
+        The audio from the speaker is now significantly louder.
+        There is a slight bit of noise detected in the signal but overall there is a clear signal coming through.
+        Next the oscillosocope is connected to a 10\(\Omega\) load instead of the speaker.
+        The measurements shown in <b>Table 1</b> are recorded.
+        The quiescent power dissipation of the amplifier is found to be 1.29 Watts.
       </p>
 
       <div class="row">
-            <div class="2column">
-              <figure>
-                <img src="img/lab2/AC.jpg" alt="AC Circuit Scematic" width="100%">
-                <figcaption><b>Fig.3</b> - DC Four-Resistor Biased Network Schematic</figcaption>
-              </figure>
-            </div>
-        <div class="2column">
+        <div class="column1">
           <figure>
-            <img src="img/lab2/ACbread.jpg" alt="AC Circuit Breadboard" width="60%">
-            <figcaption><b>Fig.4</b> - Breadboarded DC Four-Resistor Biased Network</figcaption>
+            <p>
+              \begin{array} {|c|c|c|}
+              \hline
+              Output Amplitude & Input Amplitude & Gain (\frac{V}{V}) \\
+              \hline
+              1.24 V_{PP} &  40.59 mV_{PP} & 30.5 \\
+              \hline  \end{array}
+          </p>
+          <figcaption><b>Table 1</b> - Two Stage Amplifier Gain Measurements</figcaption>
           </figure>
         </div>
-          </div>
-          <p>
-            The gain of the amplifier is now measured as \(R_L\) is varied from \(10\Omega\) to \(100k\Omega\) as shown in <b>Table 1</b> and <b>Graph 1</b>.
+      </div>
+
+      <h3>The Class AB Push-Pull Amplifier</h3>
+      <p>
+        The class B amplifier (<b>Figure 3</b>) is constructed because it will have much less quiescent power dissipation.
+        This is due to the NPN PNP combination of BJT transistors that narrows the current flow without greatly effecting the opperation of the amplifier.
+        THe power dissipation of this class B amplifier is now found to be 36 mWatts.
+        However, there is significant clipping in this particular configuration due to the lack of biasing on the base of the transistors.
+        This distortion is shown in <b>Figure 4</b>.
+      </p>
+
+      <div class="row">
+            <div class="column2">
+              <figure>
+                <img src="img/lab3/classB.png" alt="Class B Amplifier" width="100%" >
+                <figcaption><b>Figure 3</b> - Class B Amplifier</figcaption>
+              </figure>
+            </div>
+
+            <div class="column2">
+              <figure>
+                <img src="img/lab3/classBdis.png" alt="Class AB Amplifier" width="100%" >
+                <figcaption><b>Figure 3</b> - Class B Amplifier Distortion</figcaption>
+              </figure>
+            </div>
+      </div>
+
+      <p>
+        This distortion problem can be solved by using diodes to help in biasing the bases.
+        This is called a class AB Push-Pull Amplifier as shown in <b>Figure 5</b>.
+        The output of this amplifier is shown in <b>Figure 6</b> with significantly less distortion, though a higher power dissipation of 52 mWatts.
+      </p>
+
+
+      <h3>CE and AB Push-Pull Generator</h3>
+      <p>
+        Finally, the function generator is connected to the CE Amplifier output.
+        The overall voltage gain of the multistage amplifier is shown in <b>Table 2</b>.
+      </p>
+
+      <div class="row">
+        <div class="column1">
+          <figure>
+            <p>
+              \begin{array} {|c|c|c|}
+              \hline
+              Output Amplitude & Input Amplitude & Gain (\frac{V}{V}) \\
+              \hline
+              847.1 mV_{PP} &  20 mV_{PP} & 42.35 \\
+              \hline  \end{array}
           </p>
-          <div class="row">
+          <figcaption><b>Table 2</b> - Two Stage Amplifier Gain Measurements</figcaption>
+          </figure>
+        </div>
+      </div>
 
-            <div class="2column">
-              <figure>
-                <p>
-                  \begin{array} {|c|c|}
-                  \hline
-                  R_1(\Omega) & Gain \frac{V}{V}\\
-                  \hline
-                  10 & 3.07 \\
-                  100 & 10.35 \\
-                  1k & 35 \\
-                  10k & 48.125 \\
-                  100k & 50 \\
-                  \hline  \end{array}
-              </p>
-              <figcaption><b>Table.1</b> - Resistors and Gain</figcaption>
-              </figure>
-            </div>
-            <div class="2column">
-              <figure>
-                <img src="img/lab2/gain.jpg" alt="AC Circuit Gain Plot" width="100%">
-                <figcaption><b>Fig.4</b> - Breadboarded DC Four-Resistor Biased Network</figcaption>
-              </figure>
-            </div>
-          </div>
-
-            <p>
-              The gain shown above is taken from data collected using an oscilloscope.
-              Due to the varying nature of measurements,
-              the data shown in the below screenshots (<b>Figures 5-7</b>) do not line up directly with the above graph.
-              From left to right, the Figures are taken from \(R_L = 10\Omega\), \(R_L = 1k\Omega\), and \(R_L = 100k\Omega\).
-            </p>
-            <br></br>
-            <div class="row">
-                  <div class="3column">
-                    <figure>
-                      <img src="img/lab2/10.png" alt="10 Ohm Load" width="100%">
-                      <figcaption><b>Fig.5</b> - \(10\Omega\) Load</figcaption>
-                    </figure>
-                  </div>
-                  <div class="3column">
-                    <figure>
-                      <img src="img/lab2/1k.png" alt="1k Ohm Load" width="100%">
-                      <figcaption><b>Fig.6</b> - \(1k\Omega\) Load</figcaption>
-                    </figure>
-                </div>
-                <div class="3column">
-                  <figure>
-                    <img src="img/lab2/100k.png" alt="100k Ohm Load" width="100%">
-                    <figcaption><b>Fig.7</b> - \(100k\Omega\) Load</figcaption>
-                  </figure>
-              </div>
-            </div>
-
-            <p>
-              The AC input frequency is now varried from a range of 100Hz to 10MHz.
-              A sample of a low, medium, and high input frequency is shown in <b>Figures 8-10</b>.
-              <b>Table 2</b> and <b>Graph 2</b> show the gain in dB as the frequency is varied.
-            </p>
-
-            <div class="row">
-                  <div class="3column">
-                    <figure>
-                      <img src="img/lab2/low.png" alt="Low Frequency AC" width="100%">
-                      <figcaption><b>Fig.8</b> - Low Frequency AC Input</figcaption>
-                    </figure>
-                  </div>
-                  <div class="3column">
-                    <figure>
-                      <img src="img/lab2/med.png" alt="Medium Frequency AC" width="100%">
-                      <figcaption><b>Fig.9</b> - Medium Frequency AC Input</figcaption>
-                    </figure>
-                </div>
-                <div class="3column">
-                  <figure>
-                    <img src="img/lab2/high.png" alt="High Frequency AC" width="100%">
-                    <figcaption><b>Fig.10</b> - High Frequency AC Input</figcaption>
-                  </figure>
-              </div>
-            </div>
-
-            <div class="row">
-
-              <div class="2column">
-                <figure>
-                  <p>
-                    \begin{array} {|c|c|c|}
-                    \hline
-                    Frequency (Hz) &  Voltage Gain \frac{V}{V} & Gain(dB)\\
-                    \hline
-                    100 & 8.67 & 18.77 \\
-                    300 & 23.84 & 27.54 \\
-                    1k & 52.22 & 34.35 \\
-                    3k & 65.79 & 36.36 \\
-                    10k & 67.53 & 36.59 \\
-                    30k & 67.54 & 36.59 \\
-                    100k & 68.01 & 36.65 \\
-                    300k & 68.12 & 36.67 \\
-                    1M & 68.65 & 36.73 \\
-                    3M & 51.10 & 34.17 \\
-                    10M & 20.45 & 26.22 \\
-                    \hline  \end{array}
-                </p>
-                <figcaption><b>Table.2</b> - Resistors and Gain</figcaption>
-                </figure>
-              </div>
-              <div class="2column">
-                <figure>
-                  <img src="img/lab2/freqGain.png" alt="Frequency Gain" width="100%">
-                  <figcaption><b>Graph.2</b> - Frequency vs. Gain in (dB)</figcaption>
-                </figure>
-              </div>
-            </div>
-
-    </div>
-
+      <p>
+        This lab has helped greatly in my understanding of the implementation and design of amplifiers.
+        There are many different kinds of amplifiers to choose from, each with their own advantages and disadvantages
+      </p>
 
     </section>
 
