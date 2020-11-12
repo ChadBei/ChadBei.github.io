@@ -318,3 +318,10 @@ font-size: 12pt;
   flex: 33%;
   padding: 5px;
 }
+
+.video {
+
+	padding: 5px;
+	margin-left: 20%;
+	margin-right: 20%;
+}

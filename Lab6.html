@@ -39,134 +39,104 @@
 
 
     <section id="Lab">
-      <h2>Lab Five: RF Amplifier</h2>
+      <h2>Lab Six: Square Loop Antenna</h2>
       <p>
-        One of the final components needed for this AM radio is to add an RF amplifier.
-        The RF amplifier will take in the signal from the antenna constructed in Lab 6, and amplify it to be fed into the AM detector.
-        This RF amplifier includes an inductor that allows DC currents to pass through and High Frequency AM signals to be amplified.
+        This lab will conclude the creation of a working AM radio.
+		  By adding an antenna, a specific frequency can be tuned by using a trimming capacitor in paralell with the antenna.
+		  Changing the value of the capacitor with the static antenna changes the resonant frequency of the antenna and creates a strong input for the chain of amplifiers.
       </p>
       <div id="DC">
-      <h3>RF Amplifier Construction</h3>
+      <h3>Antenna Design</h3>
 
         <p>
-          The Common Source amplifier shown in <b>Figure 1</b> is created on the breadboard as shown in <b>Figure 2</b>.
-          This amplifier utilizes a JFET chip rather than a BJT.
-          A JFET chip has similar characteristics of a BJT chip, but offers a very high input resistance making it ideal for a cascaded stage of a multi-stage amplifier.
-          In the final design, this will be stage two of the RF amplifier.
+          Three equations are used to find a proper number of loops to wind around a pizza box to create an antenna. <b>Equations 1-3</b> are used to determine that a suitable number of loops around the box is about 16. Using magnet wire and electrical tape, the antenna is then formed as shown in <b>Figure 1</b>. Using <b>Equations 1-3</b>, the plot shown in <b>Figure 2</b> is created by changing the area enlosed, A, and the number of loops, N.
+		</p>
+		  
         <!-- Figures from Lab session -->
         <div class="row">
-              <div class="column2">
+              <div class="column3">
                 <figure>
-                  <img src="img/lab5/cir.png" alt="Common Source Amplifier Schematic" width="100%">
-                  <figcaption><b>Figure 1</b> - Common Source Amplifier Schematic</figcaption>
+                  <p>
+					\[ln(\frac{1.4142AN}{(N+1)B})+0.37942+(\frac{0.3333(N+1)B}{AN})\]
+					</p>
+                  <figcaption><b>Equation 1</b> - Joe Carr's Formula</figcaption>
                 </figure>
               </div>
-          <div class="column2" >
-            <figure>
-              <img src="img/lab5/CS.png" alt="Common Source Amplifier Breadboarded" width="100%">
-              <figcaption><b>Figure 2</b> - Common Source Amplifier Breadboarded</figcaption>
-            </figure>
-          </div>
+			<div class="column3">
+                <figure>
+                  <p>
+					\[f=\frac{1}{2\pi\sqrt{LC}}\]
+					</p>
+                  <figcaption><b>Equation 2</b> - Resonance Frequency</figcaption>
+                </figure>
+              </div>
+			<div class="column3">
+                <figure>
+                  <p>
+					\[C(pF)=\frac{1E18}{4\pi^2f^2L(\mu H)}\]
+					</p>
+                  <figcaption><b>Equation 3</b> - Capacitance for a Given Frequency</figcaption>
+                </figure>
+              </div>
         </div>
 
-        <p>
-          Using the circuit pictured above in <b>Figure 1 and 2</b> the following data in <b>Table 1</b> is collected by changing the value of \(R_L\).
-          <b>Table 1 </b> is further filled out by adding in an RF Choke  (RFC) inductor to the drain of the FET.
-          This created a high impedance for high frequency signals and a low impedance for lower frequencies.
-          Because this stage comes before the AM detector, the signal that we want to be amplified is of high frequencies.
-          This high impedance ensures that a clear signal is amplified.
-          <b>Figure 3</b> shows an \(R_L\) value of \(10k\Omega\) without the RFC and <b>Figure 4</b> shows an \(R_L\) value of \(1k\Omega\) with the RFC.
-        </p>
-
-                    <div class="row">
-                      <div class="column1">
-                        <figure>
-                          <p>
-                            \begin{array} {|c|c|c|c|}
-                            \hline
-                             & R_L=1M\Omega&  R_L=10k\Omega & R_L=1k\Omega\\
-                            \hline
-                            Q(V_{DS},I_D) & (8.24V, 545\mu A) & (8.19V, 757\mu A) & (8.12, 878\mu A)\\
-                            G(\frac{V}{V})~No~RFC & 2.74 & 2.28 & 1.81 \\
-                            G(\frac{V}{V})~With~RFC & 54.3 & 33.41 & 6.0 \\
-                            \hline  \end{array}
-                        </p>
-                        <figcaption><b>Table 1</b> - Varying \(R_L\) Parameters</figcaption>
-                        </figure>
+		<div class="row">
+                    <div class="column2">
+                      <figure>
+                        <img src="img/lab6/pizzabox.png" alt="Pizza Box Antenna" width="100%">
+                        <figcaption><b>Figure 1</b> - Constructed Pizza Box Antenna</figcaption>
+                      </figure>
                     </div>
-                  </div>
+			<div class="column2">
+                      <figure>
+                        <img src="img/lab6/inductance.png" alt="Inductance Analysis" width="100%">
+                        <figcaption><b>Figure 2</b> - Inductance Analysis</figcaption>
+                      </figure>
+                    </div>
+		  </div>
+
+		  <h3>Analyzing the Antenna</h3>
+        <p>
+			The antenna is now connected to the spectrum analyzer. The spectrum analyzer shows the different frequencies and their associated dBm levels. There is a noticable spike at 1230MHz as shown in <b>Figure 3</b>. This spike can be tuned using the triming capacitor, and increased when the resonance frequency is 1230MHz. This particular frequency has a spike because there is an AM sports talk station located in Atlanta and this has the strongest signal to Auburn, Alabama. 
+        </p>
 
                   <div class="row">
-                    <div class="column2">
-                      <figure>
-                        <img src="img/lab5/tek00018.png" alt="\(R_L=10k\Omega\)" width="100%">
-                        <figcaption><b>Figure 3</b> - 10k\(\Omega\) without RFC</figcaption>
-                      </figure>
-                    </div>
 
-                    <div class="column2">
+                    <div class="column1">
                       <figure>
-                        <img src="img/lab5/tek00019.png" alt="\(R_L=1k\Omega\)" width="100%">
-                        <figcaption><b>Figure 4</b> - 1k\(\Omega\) with RFC</figcaption>
+                        <img src="img/lab6/tek00021.png" alt="Spectrum Analyzer" width="100%">
+                        <figcaption><b>Figure 3</b> - Spectrum Analyzer</figcaption>
                       </figure>
                     </div>
                   </div>
 
-        <!-- Figures from Lab session -->
 
     </div>
 
+		<h3>Connecting the Antenna to the Amplifiers</h3>
     <p>
-      Next, the common emitter amplifier of <b>Figure 5</b> is created as shown in <b>Figure 6</b>.
-      The Q piont for the npn BJT is measured to be \((1.68V, 11mA)\).
-      The BJT common emitter amplifier output is fed into the gate input of the JFET common sourse amplifier through a bypass capacitor.
-      <b>Table 2</b> shows different gain values for several values of \(R_L\) ranging from \(1M\Omega-100\Omega\).
-      <b>Figure 7</b> shows an \(R_L\) value of \(1M\Omega\) and its corresponding input and output waveforms.
+      And finally, the antenna is connected to both ground and the input capacitor of the common sourse RF amplifier. When the speaker is connected as the load of the end of the A-B push-pull amplifier, there is a slightly noisy but very much so distinguishable sound coming out of the speaker. And just like that, an AM radio is born! A sample of the audio can be found below in <b>Video 1</b>.
     </p>
+		
+		<div class="row">
 
-    <div class="row">
-      <div class="column2">
-        <figure>
-          <p>
-            \begin{array} {|c|c|c|}
-            \hline
-             R_L & Gain(\frac{V}{V}) & Gain(dB)\\
-            \hline
-            1M\Omega & 120.625 & 41.62\\
-            100k\Omega & 112.06 & 40.98\\
-            10k\Omega & 125.03 & 41.94\\
-            1k\Omega & 96.875 & 39.72\\
-            100\Omega & 31.54 & 29.79\\
-            \hline  \end{array}
-        </p>
-        <figcaption><b>Table 2</b> - Varying \(R_L\) Parameters for Two-Stage RF Amplifier</figcaption>
-        </figure>
-    </div>
-
-      <div class="column2">
-        <figure>
-          <img src="img/lab5/CE.png" alt="CE Amplifier" width="100%">
-          <figcaption><b>Figure 6</b> - Breadboarded CE Amplifier</figcaption>
-        </figure>
-      </div>
-    </div>
+                    <div class="video">
+                      <figure>
+                        <video width="100%" controls>
+  						<source src="img/lab6/radio.mp4" type="video/mp4">
+ 						 Your browser does not support this video player.
+						</video>
+                        <figcaption><b>Video 1</b> - Working AM Radio</figcaption>
+                      </figure>
+                    </div>
+                  </div>
 
 
-<div class="row">
-    <div class="column1">
-      <figure>
-        <img src="img/lab5/tek00020.png" alt="\(R_L = 1M\Omega\)" width="100%">
-        <figcaption><b>Figure 7</b> - \(1M\Omega R_L\)</figcaption>
-      </figure>
-  </div>
-</div>
 
 <h3>Conclusion</h3>
 <p>
-  The only next step left is to connect the RF amp to the AM detector and connect the AM detector to the multi-stage audio amp.
-  Upon completing this, when touching the large 1000µF capacitor an audible sound is able to be heard through the speaker.
-  This is largely due to the waves that my body is able to pick up and is then fed through the ground connection into the RF amplifier.
-  This lab brings many different concepts together into creting a functional AM radio and the processing of analog and RF circuits.
+There is now an operating AM radio.
+This process brought forward many different topics including, transistor biasing networks, q point analysis, input resistance, output resistance, gain levels, further oscilloscope use, and many other. This has largely made the world of radios less "magic" and more science based to me, as I now understand what components are required as well as how they interact with each other.
 </p>
 
     </section>
