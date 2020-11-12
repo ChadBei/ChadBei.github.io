@@ -320,7 +320,7 @@ font-size: 12pt;
 }
 
 .video {
-
+	flex: 100%;
 	padding: 5px;
 	margin-left: 20%;
 	margin-right: 20%;
