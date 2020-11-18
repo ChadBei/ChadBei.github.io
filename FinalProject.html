@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/jquery-fab.css">
+    <title>Chad Beibide</title>
+  </head>
+
+
+
+  <body>
+
+    <header>
+      <div id="headerText">
+      <h1>Chad Beibide</h1>
+      <h5>cnb0036@auburn.edu <span class="accent">|</span> 256.529.9267</h5>
+    </div>
+    </header>
+
+    <nav id="navbar">
+      <ul>
+         <li><a href="./Lab1.html">Lab 1</a></li>
+         <li><a href="./Lab2.html">Lab 2</a></li>
+         <li><a href="./Lab3.html">Lab 3</a></li>
+         <li><a href="./Lab4.html">Lab 4</a></li>
+         <li><a href="./Lab5.html">Lab 5</a></li>
+         <li><a href="./Lab6.html">Lab 6</a></li>
+         <li class="active"><a href="./FinalProject.html">Final Project</a></li>
+         <li class="home"><a href="./index.html">Home</a></li>
+      </ul>
+    </nav>
+
+
+
+    <div id="contentArea">
+
+
+    <section id="Lab">
+      <h2>Final Project: Adjustable Treble-Mid-Bass EQ</h2>
+      <p>
+          This project allowed me to dive into a new aspect of this particular radio circuit without a guided lab manual to follow.
+          This being said, much researching and simulating was done in order to better grasp the response of my circuit with the added EQ.
+          In the end, some major issues were found with the design, and simple mistakes were able to hide in plain sight, taking hours to find.
+      </p>
+      <div id="DC">
+      <h3>What is an EQ?</h3>
+
+        <p>
+          An EQ or equalizer allows different frequency ranges to be adjusted for the listening pleasure of the user.
+          It is very common for these to be found alongside music applications and circuits.
+          The EQ that I have decided to create has three adjustable ranges: Trebble (~2kHz-20kHz), Mid (~200Hz-2kHz) and Bass(~20Hz-200Hz) as shown in <b>Figure 1</b>.
+          These three ranges correspond to different pitches that the human ear hears while enjoying music, and allows a user to tweak the output sound according to their liking.
+        </p>
+        <div class="row">
+              <div class="column1">
+                <figure>
+                  <img src="img/final/ranges.png" alt="Frequency Ranges" width="100%">
+                  <figcaption><b>Figure 1</b> - Audio Frequency Ranges</figcaption>
+                </figure>
+              </div>
+        </div>
+
+
+		  <h3>How to Adjust Frequencies</h3>
+        <p>
+			       There are two basic ways to manipulate these frequencies: Low Pass Filters (<b>Figure 2</b>) and High Pass Filters(<b>Figure 3</b>).
+             A low pass filter allows low frequencies to pass through, and essentially shorts high frequencies to ground.
+             A high pass filter allows higher frequencies to pass, and shorts low frequencies to ground.
+             These filter's cutoff frequency (also known as the -3dB frequency) is the boundary frequeny that the particular filter operates at.
+             The equation to calculate the -3dB frequency is found in <b>Equation 1</b>.
+        </p>
+
+                  <div class="row">
+                    <div class="column1">
+                      <figure>
+                        <p>
+                    \[f_{-3dB} = \frac{1}{2 \pi RC} \]
+                    </p>
+                        <figcaption><b>Equation 1-</b> -3dB Frequency</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                                  <div class="column2">
+                                    <figure>
+                                      <img src="img/final/lowPass.png" alt="Low Pass Filter" width="100%">
+                                      <figcaption><b>Figure 2</b> - Low Pass Filter</figcaption>
+                                    </figure>
+                                  </div>
+              			<div class="column2">
+                      <figure>
+                        <img src="img/final/highPass.png" alt="High Pass Filter" width="100%">
+                        <figcaption><b>Figure 3</b> - High Pass Filter</figcaption>
+                      </figure>
+                                  </div>
+              		  </div>
+
+
+    </div>
+
+		<h3>The Equalizer Circuit</h3>
+    <p>
+      After some extensive research into different EQ types and arrangements, it was decided to use a Fender TMB EQ circuit as show in <b>Figure 4</b>.
+      This particular circuit is within many of Fender's guitar amplifiers in several different forms, but the base circuit is shown below.
+      Something to note about this particular choice of EQ ciruicts is that this is a passive EQ.
+      This means that there is no amplification of the input signal, only a reduction.
+    </p>
+
+    <div class="row">
+      <div class="column1">
+        <figure>
+          <img src="img/final/eqCircuit.png" alt="EQ Circuit" width="100%">
+            <figcaption><b>Figure 4</b> - EQ Circuit</figcaption>
+        </figure>
+      </div>
+      </div>
+
+      <p>
+        In creating this in LTSpice, a work-around was found to implement the adjustable potentiometers as parameters.
+        In this network, there are three main filters present, one to control the treble, mid and the bass.
+        Depending on the value of the potentiometer parameters adjusts what level the particular frequency range is adjused to.
+      </p>
+
+
+
+<h3>Frequency Response</h3>
+<p>
+  The ideal and actual frequency responses are shown in <b> Figures 5 and 6</b>.
+  It does not take a professional RF Engineer to notice that these responses are not quite the same.
+  After careful examination, it is inferred that this is largely due to lower
+  frequencies being filtered out much earlier in the audio amplifier circuit.
+  Nearly every stage of different amplifiers have a high pass filter incorperated into it,
+  filtering out much of the low frequencies before they can reach the EQ circuit.
+  The mid and treble frequency ranges do provide comperable ranges and curves!
+</p>
+
+
+<div class="row">
+  <div class="column2">
+    <figure>
+      <img src="img/final/ideal.png" alt="Ideal Frequency Response" width="100%">
+        <figcaption><b>Figure 5</b> - Ideal Frequency Response</figcaption>
+    </figure>
+  </div>
+
+  <div class="column2">
+    <figure>
+      <img src="img/final/actual.png" alt="Actual Frequency Response" width="100%">
+        <figcaption><b>Figure 6</b> - Actual Frequency Response</figcaption>
+    </figure>
+  </div>
+  </div>
+
+
+  <h3>Conclusion</h3>
+
+  <p>
+    This project required much independent SPICE work and research.
+    In the past, this was done by being thoroughly guided by a Lab Manual.
+    This time around, there was no lab manual, as well as no specific end criteria.
+    It was very interesting to dive into different avenues of frequency response
+    and its applications in audio equlizers.
+  </p>
+
+    </section>
+
+
+
+  </div>
+
+        <footer>
+          <h4>Created By: Chad Beibide</h5>
+          <h5>Use icon in bottom right to send me an email, download my resume, or both! Hope to hear from you!</h5>
+        </footer>
+
+    <div id="fab"></div>
+  <script type="text/javascript"  src="js/jquery/dist/jquery.min.js"></script>
+  <script src="js/dist/jquery-fab.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  </body>
+
+</html>
