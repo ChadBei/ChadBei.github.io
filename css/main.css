@@ -11,7 +11,7 @@
 }
 
 body {
-    background: var(--darkBackground);
+    background: var(--lightText);
     height: fit-content;
 }
 
@@ -48,10 +48,6 @@ header h5 {
     letter-spacing: 1px;
 }
 
-#nav {
-    width: 100%;
-    margin: 0;
-}
 
 #headerText {
     background-color: var(--darkBackground);
@@ -70,6 +66,10 @@ header h5 {
 nav {
     border-top: 1px solid black;
     box-shadow: 5px 0 10px black;
+    margin: auto;
+    margin-bottom: 24px;
+    /* width: 80%;
+    border-radius: 50px; */
 }
 
 nav *{
@@ -97,13 +97,29 @@ nav a{
     color: var(--lightText);
     font-size: 16pt;
     transition: 0.4s;
-    border-bottom: 2px solid var(--darkBackground);
+    //border-bottom: 2px solid var(--darkBackground);
 }
 
 nav a:hover{
     background: #302e42;
     color: var(--accentColor);
 }
+
+
+ul li ul.dropdown {
+        width: auto; /* Set width of the dropdown */
+        background: var(--darkBackground);
+        display: none;
+        position: absolute;
+        left: 0;
+    }
+    ul li:hover ul.dropdown {
+        display: block; /* Display the dropdown */
+    }
+    ul li ul.dropdown li {
+        display: block;
+        background-color: var(--darkBackground);
+    }
 
 .active a{
   border-bottom: 2px solid var(--blueAccent);
@@ -127,7 +143,7 @@ nav a:hover{
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + #contentArea {
-  padding-top: 60px;
+  padding-top: 84px;
 }
 
 .fab {
@@ -172,8 +188,21 @@ section {
     /* border: 1px solid gray;
     border-radius: 10px;
     margin-bottom: 16px; */
-    padding: 24px 12% 24px 12%;
-    background: var(--lightText);
+    padding: 24px 36px 24px 36px;
+    background: var(--lightText) !important;
+    background-color: white;
+    border-radius: 22px;
+    display: inline-block;
+    overflow: hidden;
+    display: block;
+    min-width: 20%;
+    max-width: 75%;
+    margin: auto;
+    margin-bottom: 48px;
+
+    box-shadow: -12px -12px 24px #cbc9c5,
+                 12px 12px 24px #ffffff;
+
 }
 
 p {
@@ -196,6 +225,7 @@ h4 {
     float: right;
     margin-left: 24pt;
     margin-bottom:24pt;
+    max-width: 200px;
 }
 
 
@@ -284,14 +314,12 @@ figure figcaption {
   margin-bottom: 32px;
 }
 
-section {
-  overflow: hidden;
-}
-
 figure p {
 font-size: 12pt;
 
 }
+
+
 
 #Lab p{
   display: block;

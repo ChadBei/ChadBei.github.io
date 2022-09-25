@@ -27,9 +27,11 @@ var lastId,
 i = 0,
  scrollItems = menuItems.map(function(){
    i = i + 1;
-   if (i != 5) {
+   if (i < 5) {
      var item = $($(this).attr("href"));
-      if (item.length) { return item; }
+      if (item.length) {
+        return item;
+       }
    }
  });
 
@@ -37,7 +39,7 @@ i = 0,
 // so we can get a fancy scroll animation
 menuItems.click(function(e){
   var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight-24;
   $('html, body').stop().animate({
       scrollTop: offsetTop
   }, 850);
@@ -47,7 +49,7 @@ menuItems.click(function(e){
 // Bind to scroll
 $(window).scroll(function(){
    // Get container scroll position
-   var fromTop = $(this).scrollTop()+topMenuHeight;
+   var fromTop = $(this).scrollTop()+topMenuHeight+25;
 
    // Get id of current scroll item
    var cur = scrollItems.map(function(){
